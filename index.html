@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul Kellers | Systematic Architecture</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-primary: #e0e0e0;
+            --text-muted: #7a7a7a;
+            --accent: #ffffff;
+            --border-line: #222222;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .page-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1100px;
+            width: 90%;
+            margin: 0 auto;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .image-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-section img {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            border-radius: 2px;
+            filter: grayscale(100%) contrast(1.1);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+        }
+
+        .content-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .header h1 {
+            font-size: 3.2rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+            color: var(--accent);
+            border-bottom: 1px solid var(--border-line);
+            padding-bottom: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 400;
+        }
+
+        .bio-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            font-size: 1.15rem;
+            font-weight: 300;
+            max-width: 95%;
+            color: #b0b0b0;
+            line-height: 1.8;
+        }
+        
+        .bio-section strong {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .mandate {
+            margin-top: 0.5rem;
+            padding: 1.5rem 2rem;
+            background-color: #111111;
+            border-left: 2px solid var(--accent);
+            font-style: italic;
+            font-size: 1.05rem;
+            color: #d0d0d0;
+        }
+
+        .disclaimer {
+            max-width: 1100px;
+            width: 90%;
+            margin: 0 auto;
+            padding: 2rem 0 3rem;
+            border-top: 1px solid var(--border-line);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .disclaimer strong {
+            color: #999999;
+        }
+
+        .disclaimer p {
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+                gap: 3rem;
+            }
+            
+            .header h1 {
+                font-size: 2.6rem;
+            }
+
+            .bio-section {
+                margin: 0 auto;
+                text-align: left;
+            }
+
+            .mandate {
+                padding: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="page-wrapper">
+        <div class="container">
+            <div class="image-section">
+                <img src="image.jpg" alt="Paul Kellers">
+            </div>
+            <div class="content-section">
+                <div class="header">
+                    <h1>Paul Kellers</h1>
+                    <div class="subtitle">Systematic Architecture & Data Modeling</div>
+                </div>
+                
+                <div class="bio-section">
+                    <p>Born and educated in Central London, Paul Kellers has dedicated the past fifteen years to the rigorous study and application of quantitative modeling.</p>
+                    
+                    <p>Driven by an INTJ architectural mindset, his primary work focuses on decoding complex market mechanics and mapping the structural anomalies hidden within cyclical data systems.</p>
+                    
+                    <p>By stripping away conventional noise, he develops proprietary, non-linear models grounded entirely in pure logic, systematic execution, and <strong>zero curve fitting.</strong></p>
+                    
+                    <div class="mandate">
+                        "I design, stress-test, and deploy systematic models trading strictly my own capital. No outside investors, no advisory services, and no retail software distribution. Just pure mathematical execution built on absolute transparency."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="disclaimer">
+        <p><strong>RISK WARNING:</strong> Trading foreign exchange on margin carries a high level of risk and may not be suitable for all investors. The high degree of leverage can work against you as well as for you. Before deciding to trade foreign exchange, you should carefully consider your investment objectives, level of experience, and risk appetite. The possibility exists that you could sustain a loss of some or all of your initial investment and therefore you should not invest money that you cannot afford to lose.</p>
+        <p><strong>NO INVESTMENT ADVICE:</strong> The content on this website is provided for informational purposes only and does not constitute investment advice, financial advice, trading advice, or any other sort of advice. Systematic.Forex does not manage outside capital, solicit funds, or recommend that any financial instrument should be bought, sold, or held by you. Nothing on this website should be taken as an offer or solicitation to buy or sell any financial instrument. Past performance is not indicative of future results.</p>
+    </div>
+
+</body>
+</html>
