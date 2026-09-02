@@ -3,93 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Systematic Testing & Architecture | Paul Kellers</title>
+    <title>How I Test | Paul Kellers</title>
     <style>
-        body {
-            background-color: #0d0d0d;
-            color: #d1d1d1;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 50px 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        h1 {
-            color: #ffffff;
-            font-size: 2.5em;
-            font-weight: 300;
-            margin-bottom: 40px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 10px;
-        }
-        h2 {
-            color: #ffffff;
-            font-size: 1.5em;
-            font-weight: 400;
-            margin-top: 40px;
-            margin-bottom: 15px;
-        }
-        p {
-            font-size: 1.1em;
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
-        ul {
-            font-size: 1.1em;
-            font-weight: 300;
-            margin-bottom: 20px;
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-        strong {
-            color: #ffffff;
-            font-weight: 500;
-        }
-        .nav-link {
-            display: inline-block;
-            color: #888;
-            text-decoration: none;
-            font-size: 0.9em;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-        }
-        .nav-link:hover {
-            color: #ffffff;
-        }
+        body { background-color: #0d0d0d; color: #d1d1d1; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; margin: 0; padding: 50px 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { color: #ffffff; font-size: 2.5em; font-weight: 300; margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        h2 { color: #ffffff; font-size: 1.5em; font-weight: 400; margin-top: 40px; margin-bottom: 15px; }
+        p { font-size: 1.1em; margin-bottom: 20px; font-weight: 300; }
+        ul { font-size: 1.1em; font-weight: 300; margin-bottom: 20px; padding-left: 20px; }
+        li { margin-bottom: 10px; }
+        strong { color: #ffffff; font-weight: 500; }
+        .nav-link { display: inline-block; color: #888; text-decoration: none; font-size: 0.9em; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease; }
+        .nav-link:hover { color: #ffffff; }
+        .box { background: #111; border-left: 2px solid #fff; padding: 1.5rem; margin: 2rem 0; font-style: italic; }
     </style>
 </head>
 <body>
-
     <div class="container">
         <a href="index.html" class="nav-link">← Back to Home</a>
-        
-        <h1>Systematic Testing & Architecture</h1>
+        <h1>How I test models so I don't fool myself</h1>
 
-        <h2>The Philosophy of Absolute Transparency</h2>
-        <p>In a retail industry plagued by fabricated results and optimized marketing, capital preservation demands a different standard. Every systematic model deployed is subjected to a ruthless, data-driven validation process before it ever touches a live market. There is zero curve-fitting, zero look-ahead bias, and absolute transparency in the architectural logic.</p>
+        <h2>Zero curve fitting. That's the rule.</h2>
+        <p>Retail trading is full of optimized backtests that look amazing and blow up live. I spent 15 years in data modelling, so I know how easy it is to fool yourself. My rule is simple: if it needs curve fitting to work, it doesn't work.</p>
 
-        <h2>The MQL5 Execution Environment</h2>
-        <p>All trading architecture is custom-built and compiled natively in MQL5 for MetaTrader 5. By bypassing third-party bridges and utilizing localized execution on low-latency Virtual Private Servers, the systems maintain millisecond precision without spamming broker servers. The code is strictly logical, eliminating emotional interference and human error.</p>
+        <div class="box">"No 200% screenshots. No perfect equity curves. Just models that have to survive 10 years of ugly data first."</div>
 
-        <h2>Data Integrity & The 10-Year Baseline</h2>
-        <p>A model is only as robust as the data it survives. Every Expert Advisor undergoes rigorous historical auditing, utilizing a minimum of 10 years of raw, tick-by-tick market data. This ensures the logic is validated across multiple macro-economic cycles, structural shifts, and black swan events, rather than just being optimized for a favorable short-term trend.</p>
+        <h2>Built in MQL5, running on a VPS</h2>
+        <p>Everything is custom coded in MQL5 for MT5. No bridges, no copy trading, no signals. It runs on a low-latency VPS so it doesn't spam the broker and timing stays consistent. It's boring, logical code — that's the point. Removes me from the decision.</p>
 
-        <h2>Quantitative Stress Testing</h2>
-        <p>Building a model that survives the past is only step one; it must be engineered to survive the unknown. The architecture utilizes advanced quantitative protocols, including:</p>
-        
+        <h2>The 10-year baseline</h2>
+        <p>I don't test on 2 years of nice trending data. Every model has to go through at least 10 years of raw tick data — different regimes, news shocks, black swans, low vol, high vol. If it can't survive that, I bin it.</p>
+
+        <h2>How I stress it</h2>
         <ul>
-            <li><strong>Monte Carlo Simulations:</strong> Injecting thousands of randomized variations into the trade sequence and slippage models to stress-test the system's absolute breaking point and guarantee survival in worst-case scenarios.</li>
-            <li><strong>Walk-Forward Analysis:</strong> Segmenting historical data into strict "in-sample" building phases and "out-of-sample" blind testing phases to completely eradicate curve-fitting.</li>
-            <li><strong>The Kelly Criterion:</strong> Applying advanced mathematical formulas to determine optimal position sizing, ensuring the highest possible compound growth rate while strictly capping maximum drawdown and preserving the underlying capital.</li>
+            <li><strong>Walk-Forward:</strong> Build on one chunk of data, test blind on the next chunk I never showed it. If it only works on the chunk it saw, it's useless.</li>
+            <li><strong>Monte Carlo:</strong> Randomly shuffle trades and slippage thousands of times to see where it breaks. I want to know the worst case before the market shows me.</li>
+            <li><strong>Position sizing:</strong> I use math (Kelly-based) to keep drawdown capped. I'm not here to double accounts. I'm here to not blow up. I trade own capital, I can't afford to blow up.</li>
         </ul>
-    </div>
 
+        <p style="margin-top: 3rem;">That's it. No secret sauce. Just 15 years of learning how not to lie to yourself with data.</p>
+        <a href="discretion.html" class="nav-link" style="margin-top: 2rem;">→ Next: How I execute with discretion</a>
+        <br>
+        <a href="index.html" class="nav-link">← Back to Home</a>
+    </div>
 </body>
 </html>
