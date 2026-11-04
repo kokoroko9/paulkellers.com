@@ -1,50 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How I Test | Paul Kellers</title>
-    <style>
-        body { background-color: #0d0d0d; color: #d1d1d1; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; margin: 0; padding: 50px 20px; }
-        .container { max-width: 800px; margin: 0 auto; }
-        h1 { color: #ffffff; font-size: 2.5em; font-weight: 300; margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 10px; }
-        h2 { color: #ffffff; font-size: 1.5em; font-weight: 400; margin-top: 40px; margin-bottom: 15px; }
-        p { font-size: 1.1em; margin-bottom: 20px; font-weight: 300; }
-        ul { font-size: 1.1em; font-weight: 300; margin-bottom: 20px; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        strong { color: #ffffff; font-weight: 500; }
-        .nav-link { display: inline-block; color: #888; text-decoration: none; font-size: 0.9em; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease; }
-        .nav-link:hover { color: #ffffff; }
-        .box { background: #111; border-left: 2px solid #fff; padding: 1.5rem; margin: 2rem 0; font-style: italic; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How I Test | Paul Kellers</title>
+  <meta name="description" content="How I test trading models so I don't fool myself. Zero curve fitting. 10-year baseline. Walk-forward, Monte Carlo, position sizing.">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <a href="index.html" class="nav-link">← Back to Home</a>
-        <h1>How I test models so I don't fool myself</h1>
+  <div class="container">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="architecture.html" class="active">How I test</a>
+      <a href="discretion.html">How I execute</a>
+    </nav>
 
-        <h2>Zero curve fitting. That's the rule.</h2>
-        <p>Retail trading is full of optimized backtests that look amazing and blow up live. I spent 15 years in data modelling, so I know how easy it is to fool yourself. My rule is simple: if it needs curve fitting to work, it doesn't work.</p>
+    <h1>How I test models so I don't fool myself</h1>
+    <p class="subtitle">Zero curve fitting. That's the rule.</p>
 
-        <div class="box">"No 200% screenshots. No perfect equity curves. Just models that have to survive 10 years of ugly data first."</div>
+    <p>Retail trading is full of optimised backtests that look amazing and blow up live. I spent 15 years in data modelling, so I know how easy it is to fool yourself. My rule is simple: if it needs curve fitting to work, it doesn't work.</p>
 
-        <h2>Built in MQL5, running on a VPS</h2>
-        <p>Everything is custom coded in MQL5 for MT5. No bridges, no copy trading, no signals. It runs on a low-latency VPS so it doesn't spam the broker and timing stays consistent. It's boring, logical code — that's the point. Removes me from the decision.</p>
-
-        <h2>The 10-year baseline</h2>
-        <p>I don't test on 2 years of nice trending data. Every model has to go through at least 10 years of raw tick data — different regimes, news shocks, black swans, low vol, high vol. If it can't survive that, I bin it.</p>
-
-        <h2>How I stress it</h2>
-        <ul>
-            <li><strong>Walk-Forward:</strong> Build on one chunk of data, test blind on the next chunk I never showed it. If it only works on the chunk it saw, it's useless.</li>
-            <li><strong>Monte Carlo:</strong> Randomly shuffle trades and slippage thousands of times to see where it breaks. I want to know the worst case before the market shows me.</li>
-            <li><strong>Position sizing:</strong> I use math (Kelly-based) to keep drawdown capped. I'm not here to double accounts. I'm here to not blow up. I trade own capital, I can't afford to blow up.</li>
-        </ul>
-
-        <p style="margin-top: 3rem;">That's it. No secret sauce. Just 15 years of learning how not to lie to yourself with data.</p>
-        <a href="discretion.html" class="nav-link" style="margin-top: 2rem;">→ Next: How I execute with discretion</a>
-        <br>
-        <a href="index.html" class="nav-link">← Back to Home</a>
+    <div class="quote">
+      “No 200% screenshots. No perfect equity curves. Just models that have to survive 10 years of ugly data first.”
     </div>
+
+    <h2>Built in MQL5, running on a VPS</h2>
+    <p>Everything is custom coded in MQL5 for MT5. No bridges, no copy trading, no signals. It runs on a low-latency VPS so it doesn't spam the broker and timing stays consistent. It's boring, logical code — that's the point. Removes me from the decision.</p>
+
+    <h2>The 10-year baseline</h2>
+    <p>I don't test on 2 years of nice trending data. Every model has to go through at least 10 years of raw tick data — different regimes, news shocks, black swans, low vol, high vol. If it can't survive that, I bin it.</p>
+
+    <h2>How I stress it</h2>
+    <ul>
+      <li><strong>Walk-Forward:</strong> Build on one chunk of data, test blind on the next chunk I never showed it. If it only works on the chunk it saw, it's useless.</li>
+      <li><strong>Monte Carlo:</strong> Randomly shuffle trades and slippage thousands of times to see where it breaks. I want to know the worst case before the market shows me.</li>
+      <li><strong>Position sizing:</strong> I use math (Kelly-based) to keep drawdown capped. I'm not here to double accounts. I'm here to not blow up. I trade own capital, I can't afford to blow up.</li>
+    </ul>
+
+    <p>That's it. No secret sauce. Just 15 years of learning how not to lie to yourself with data.</p>
+
+    <div class="links">
+      <a href="discretion.html">→ Next: How I execute with discretion</a>
+      <a href="index.html">← Back to home</a>
+    </div>
+
+    <div class="risk">
+      <p><strong>RISK WARNING:</strong> Trading foreign exchange on margin carries a high level of risk.</p>
+      <p><strong>NO INVESTMENT ADVICE:</strong> I do not manage outside capital, solicit funds, or give financial advice. Past performance is not indicative of future results.</p>
+    </div>
+  </div>
 </body>
 </html>
